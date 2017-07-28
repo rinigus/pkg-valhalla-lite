@@ -6,7 +6,8 @@ License: MIT
 Group: Libraries/Location
 URL: https://github.com/valhalla/valhalla
 
-Source: https://github.com/rinigus/valhalla
+#Source: https://github.com/rinigus/valhalla
+Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++ libtool
@@ -41,7 +42,7 @@ Requires: %{name} = %{version}
 Tools for valhalla
 
 %prep
-%setup
+%setup -q -n %{name}-%{version}/valhalla
 
 %build
 %{__make} clean || true
@@ -62,7 +63,9 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 
 %pre
 
-%post
+%post -n valhalla -p /sbin/ldconfig
+
+%postun -n valhalla -p /sbin/ldconfig
 
 %files
 %files
