@@ -10,7 +10,7 @@ URL: https://github.com/valhalla/valhalla
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-BuildRequires: gcc-c++ libtool
+BuildRequires: gcc-c++ libtool vim-enhanced
 BuildRequires: libzmq-devel >= 4.1.4, czmq-devel >= 3.0, libcurl-devel >= 7.22.0
 BuildRequires: jq, protobuf-devel, prime_server-devel == 0.6.3
 BuildRequires: boost-devel >= 1.51, boost-chrono >= 1.51, boost-date-time >= 1.51, boost-filesystem >= 1.51
