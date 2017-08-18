@@ -1,6 +1,6 @@
 Summary: Open Source Routing Engine for OpenStreetMap
 Name: valhalla
-Version: 2.2.8
+Version: 2.3.4
 Release: 1%{?dist}
 License: MIT
 Group: Libraries/Location
