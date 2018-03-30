@@ -16,12 +16,12 @@ BuildRequires: jq, protobuf-devel, prime_server-devel == 0.6.3
 BuildRequires: boost-devel >= 1.51, boost-chrono >= 1.51, boost-date-time >= 1.51, boost-filesystem >= 1.51
 BuildRequires: boost-iostreams >= 1.51, boost-program-options >= 1.51, boost-regex >= 1.51
 BuildRequires: boost-system >= 1.51, boost-thread >= 1.51
-BuildRequires: lz4-devel >= 1.7.3
+BuildRequires: lz4-devel >= 1.7.3, zlib-devel >= 1.2.8
 Requires: libzmq >= 4.1.4, czmq >= 3.0, libcurl >= 7.22.0, protobuf, prime_server == 0.6.3
 Requires: boost-chrono >= 1.51, boost-date-time >= 1.51, boost-filesystem >= 1.51
 Requires: boost-iostreams >= 1.51, boost-program-options >= 1.51, boost-regex >= 1.51
 Requires: boost-system >= 1.51, boost-thread >= 1.51
-Requires: liblz4 >= 1.7.3
+Requires: lz4 >= 1.7.3, zlib >= 1.2.8
 
 %description
 Open Source Routing Engine for OpenStreetMap
