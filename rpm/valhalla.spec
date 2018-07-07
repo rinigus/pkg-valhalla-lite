@@ -82,7 +82,7 @@ cd ..
 %defattr(-, root, root, 0755)
 %{_includedir}/valhalla
 %{_libdir}/libvalhalla.a
-%{_libdir}/libvalhalla.la
+#%{_libdir}/libvalhalla.la
 %{_libdir}/pkgconfig/libvalhalla.pc
 
 %files tools
