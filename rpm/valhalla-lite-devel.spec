@@ -81,6 +81,7 @@ cd ..
 %files tools
 %defattr(-, root, root, 0755)
 %{_bindir}/valhalla_*
+%{_libdir}/libvalhalla.so*
 
 %changelog
 * Tue Jul 10 2018 rinigus <rinigus.git@gmail.com> - 2.6.2-1
