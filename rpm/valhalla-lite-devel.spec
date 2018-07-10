@@ -30,7 +30,7 @@ Libraries for development with Valhalla - Open Source Routing Engine for OpenStr
 %package tools
 Summary: valhalla tools
 Group: Libraries/Location
-Requires: %{name} = %{version}
+#Requires: %{name} = %{version}
 Conflicts: valhalla-tools
 
 %description tools
