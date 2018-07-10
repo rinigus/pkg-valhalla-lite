@@ -61,9 +61,9 @@ cd ..
 
 %pre
 
-%post -n valhalla -p /sbin/ldconfig
+%post -n valhalla-lite-devel -p /sbin/ldconfig
 
-%postun -n valhalla -p /sbin/ldconfig
+%postun -n valhalla-lite-devel -p /sbin/ldconfig
 
 %files
 %files
