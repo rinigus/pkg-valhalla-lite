@@ -22,6 +22,7 @@ Requires: boost-date-time >= 1.51, boost-filesystem >= 1.51
 Requires: boost-iostreams >= 1.51, boost-regex >= 1.51
 Requires: boost-system >= 1.51
 Requires: lz4 >= 1.7.3, zlib >= 1.2.8
+Conflicts: valhalla-devel
 
 %description
 Libraries for development with Valhalla - Open Source Routing Engine for OpenStreetMap
@@ -30,6 +31,7 @@ Libraries for development with Valhalla - Open Source Routing Engine for OpenStr
 Summary: valhalla tools
 Group: Libraries/Location
 Requires: %{name} = %{version}
+Conflicts: valhalla-tools
 
 %description tools
 Tools for valhalla
