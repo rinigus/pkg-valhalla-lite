@@ -12,7 +12,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++ libtool vim-enhanced
 BuildRequires: cmake lua lua-devel
-BuildRequires: jq, protobuf-devel
+BuildRequires: jq, protobuf-devel, libcurl-devel >= 7.22.0
 BuildRequires: boost-devel >= 1.51, boost-date-time >= 1.51, boost-filesystem >= 1.51
 BuildRequires: boost-iostreams >= 1.51, boost-regex >= 1.51
 BuildRequires: boost-system >= 1.51
