@@ -1,6 +1,6 @@
 Summary: Open Source Routing Engine for OpenStreetMap
 Name: valhalla-lite-devel
-Version: 2.6.2
+Version: 2.6.3
 Release: 1%{?dist}
 License: MIT
 Group: Development/Libraries
@@ -84,5 +84,8 @@ cd ..
 %{_libdir}/libvalhalla.so*
 
 %changelog
+* Mon Aug 27 2018 rinigus <rinigus.git@gmail.com> - 2.6.3-1
+- packaging lite version
+
 * Tue Jul 10 2018 rinigus <rinigus.git@gmail.com> - 2.6.2-1
 - packaging lite version
