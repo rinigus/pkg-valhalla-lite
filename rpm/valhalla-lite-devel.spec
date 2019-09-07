@@ -10,6 +10,7 @@ URL: https://github.com/valhalla/valhalla
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
+BuildRequires: opt-gcc6 gcc-c++
 BuildRequires: gcc-c++ libtool vim-enhanced
 BuildRequires: cmake lua lua-devel
 BuildRequires: jq, protobuf-devel, libcurl-devel >= 7.22.0
@@ -46,6 +47,9 @@ cd build-rpm
 
 CFLAGS="$CFLAGS -fPIC"
 CXXFLAGS="$CXXFLAGS -fPIC"
+CXX=/opt/gcc6/bin/g++
+CC=/opt/gcc6/bin/gcc
+LINK=/opt/gcc6/bin/g++
 %cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr -DBUILD_SHARED_LIBS=OFF -DBUILD_STATIC_LIBS=ON -DENABLE_DATA_TOOLS=OFF -DENABLE_PYTHON_BINDINGS=OFF -DENABLE_SERVICES=OFF -DENABLE_NODE_BINDINGS=OFF
 #%{__make} %{?_smp_mflags}
 %{__make} -j1
