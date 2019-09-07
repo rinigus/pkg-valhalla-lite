@@ -1,6 +1,6 @@
 Summary: Open Source Routing Engine for OpenStreetMap
 Name: valhalla-lite-devel
-Version: 2.6.3
+Version: 3.0.8
 Release: 1%{?dist}
 License: MIT
 Group: Development/Libraries
@@ -46,7 +46,7 @@ cd build-rpm
 
 CFLAGS="$CFLAGS -fPIC"
 CXXFLAGS="$CXXFLAGS -fPIC"
-%cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr -DBUILD_SHARED_LIBS=OFF -DBUILD_STATIC_LIBS=ON -DENABLE_DATA_TOOLS=OFF -DENABLE_PYTHON_BINDINGS=OFF -DENABLE_SERVICES=OFF
+%cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr -DBUILD_SHARED_LIBS=OFF -DBUILD_STATIC_LIBS=ON -DENABLE_DATA_TOOLS=OFF -DENABLE_PYTHON_BINDINGS=OFF -DENABLE_SERVICES=OFF -DENABLE_NODE_BINDINGS=OFF
 %{__make} %{?_smp_mflags}
 cd ..
 
