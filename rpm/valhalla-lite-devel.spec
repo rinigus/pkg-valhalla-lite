@@ -42,7 +42,7 @@ Tools for valhalla
 
 %build
 %{__make} clean || true
-mkdir build-rpm
+mkdir build-rpm || true
 cd build-rpm
 
 CFLAGS="$CFLAGS -fPIC"
