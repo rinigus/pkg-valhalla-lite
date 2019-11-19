@@ -77,11 +77,8 @@ cd ..
 %{_libdir}/libvalhalla.a
 #%{_libdir}/libvalhalla.la
 %{_libdir}/pkgconfig/libvalhalla.pc
-%{_docdir}/libvalhalla-dev/COPYING
-%{_docdir}/libvalhalla-dev/ChangeLog
-%{_docdir}/libvalhalla-dev/README.md
-%{_docdir}/valhalla/COPYING
-%{_docdir}/valhalla/ChangeLog
+%{_docdir}/libvalhalla-dev/*
+%{_docdir}/valhalla/*
 
 %files tools
 %defattr(-, root, root, 0755)
