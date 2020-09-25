@@ -66,6 +66,14 @@ cd build-rpm
 %{__make} install DESTDIR=%{buildroot}
 cd ..
 
+rm -rf %{buildroot}/usr/include/gmock
+rm -rf %{buildroot}/usr/include/gtest
+rm -rf %{buildroot}%{_libdir}/cmake/GTest
+rm -rf %{buildroot}%{_libdir}/libgmock*
+rm -rf %{buildroot}%{_libdir}/libgtest*
+rm -rf %{buildroot}%{_libdir}/pkgconfig/gmock*
+rm -rf %{buildroot}%{_libdir}/pkgconfig/gtest*
+
 %clean
 %{__rm} -rf %{buildroot}
 
@@ -85,6 +93,7 @@ cd ..
 %{_libdir}/pkgconfig/libvalhalla.pc
 %{_docdir}/libvalhalla-dev/*
 %{_docdir}/valhalla/*
+%{_docdir}/libvalhalla0/*
 
 %files tools
 %defattr(-, root, root, 0755)
