@@ -27,7 +27,15 @@ Requires: lz4 >= 1.7.3, zlib >= 1.2.8
 Conflicts: valhalla-devel
 
 %description
-Libraries for development with Valhalla - Open Source Routing Engine for OpenStreetMap
+Valhalla Libraries - Open Source Routing Engine for OpenStreetMap
+
+%package devel
+Summary: Valhalla development package
+Group: Development/Libraries/Other
+Requires: %{name} = %{version}
+
+%description devel
+%summary
 
 %package tools
 Summary: valhalla tools
@@ -68,10 +76,12 @@ cd ..
 %postun -n valhalla-lite-devel -p /sbin/ldconfig
 
 %files
-%files
+%defattr(-, root, root, 0755)
+%{_libdir}/libvalhalla.so*
+
+%files devel
 %defattr(-, root, root, 0755)
 %{_includedir}/valhalla
-%{_libdir}/libvalhalla.a
 %{_libdir}/pkgconfig/libvalhalla.pc
 %{_docdir}/libvalhalla-dev/*
 %{_docdir}/valhalla/*
@@ -79,7 +89,6 @@ cd ..
 %files tools
 %defattr(-, root, root, 0755)
 %{_bindir}/valhalla_*
-%{_libdir}/libvalhalla.so*
 
 %changelog
 * Mon Aug 27 2018 rinigus <rinigus.git@gmail.com> - 2.6.3-1
