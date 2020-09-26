@@ -66,13 +66,13 @@ cd build-rpm
 %{__make} install DESTDIR=%{buildroot}
 cd ..
 
-rm -rf %{buildroot}/usr/include/gmock
-rm -rf %{buildroot}/usr/include/gtest
-rm -rf %{buildroot}%{_libdir}/cmake/GTest
-rm -rf %{buildroot}%{_libdir}/libgmock*
-rm -rf %{buildroot}%{_libdir}/libgtest*
-rm -rf %{buildroot}%{_libdir}/pkgconfig/gmock*
-rm -rf %{buildroot}%{_libdir}/pkgconfig/gtest*
+# rm -rf %{buildroot}/usr/include/gmock
+# rm -rf %{buildroot}/usr/include/gtest
+# rm -rf %{buildroot}%{_libdir}/cmake/GTest
+# rm -rf %{buildroot}%{_libdir}/libgmock*
+# rm -rf %{buildroot}%{_libdir}/libgtest*
+# rm -rf %{buildroot}%{_libdir}/pkgconfig/gmock*
+# rm -rf %{buildroot}%{_libdir}/pkgconfig/gtest*
 
 %clean
 %{__rm} -rf %{buildroot}
