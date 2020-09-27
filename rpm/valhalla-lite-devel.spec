@@ -1,12 +1,16 @@
+# Define Sailfish as it is absent
+%if !0%{?fedora}
+%define sailfishos 1
+%endif
+
 Summary: Open Source Routing Engine for OpenStreetMap
-Name: valhalla-lite-devel
+Name: valhalla-lite
 Version: 3.0.8
 Release: 1%{?dist}
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/valhalla/valhalla
 
-#Source: https://github.com/rinigus/valhalla
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
@@ -40,7 +44,7 @@ Requires: %{name} = %{version}
 %package tools
 Summary: valhalla tools
 Group: Libraries/Location
-#Requires: %{name} = %{version}
+Requires: %{name} = %{version}
 Conflicts: valhalla-tools
 
 %description tools
@@ -55,9 +59,25 @@ Tools for valhalla
 mkdir build-rpm || true
 cd build-rpm
 
-%cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr -DBUILD_SHARED_LIBS=ON -DENABLE_DATA_TOOLS=OFF -DENABLE_PYTHON_BINDINGS=OFF -DENABLE_SERVICES=OFF -DENABLE_NODE_BINDINGS=OFF
+%if 0%{?sailfishos}
+
+CFLAGS="$CFLAGS -fPIC"
+CXXFLAGS="$CXXFLAGS -fPIC"
+%cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+       -DBUILD_SHARED_LIBS=OFF \
+       -DENABLE_DATA_TOOLS=OFF -DENABLE_PYTHON_BINDINGS=OFF \
+       -DENABLE_SERVICES=OFF -DENABLE_NODE_BINDINGS=OFF
+
+%else
+
+%cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+       -DBUILD_SHARED_LIBS=ON -DENABLE_DATA_TOOLS=OFF \
+       -DENABLE_PYTHON_BINDINGS=OFF -DENABLE_SERVICES=OFF \
+       -DENABLE_NODE_BINDINGS=OFF
+
+%endif
+
 %{__make} %{?_smp_mflags}
-#%{__make} -j1
 cd ..
 
 %install
@@ -66,34 +86,31 @@ cd build-rpm
 %{__make} install DESTDIR=%{buildroot}
 cd ..
 
-# rm -rf %{buildroot}/usr/include/gmock
-# rm -rf %{buildroot}/usr/include/gtest
-# rm -rf %{buildroot}%{_libdir}/cmake/GTest
-# rm -rf %{buildroot}%{_libdir}/libgmock*
-# rm -rf %{buildroot}%{_libdir}/libgtest*
-# rm -rf %{buildroot}%{_libdir}/pkgconfig/gmock*
-# rm -rf %{buildroot}%{_libdir}/pkgconfig/gtest*
-
 %clean
 %{__rm} -rf %{buildroot}
 
 %pre
 
-%post -n valhalla-lite-devel -p /sbin/ldconfig
+%post -n valhalla-lite -p /sbin/ldconfig
 
-%postun -n valhalla-lite-devel -p /sbin/ldconfig
+%postun -n valhalla-lite -p /sbin/ldconfig
 
 %files
 %defattr(-, root, root, 0755)
+%{_docdir}/valhalla/*
+%if !0%{?sailfishos}
 %{_libdir}/libvalhalla.so*
+%{_docdir}/libvalhalla0/*
+%endif
 
 %files devel
 %defattr(-, root, root, 0755)
 %{_includedir}/valhalla
 %{_libdir}/pkgconfig/libvalhalla.pc
 %{_docdir}/libvalhalla-dev/*
-%{_docdir}/valhalla/*
-%{_docdir}/libvalhalla0/*
+%if 0%{?sailfishos}
+%{_libdir}/libvalhalla.a
+%endif
 
 %files tools
 %defattr(-, root, root, 0755)
