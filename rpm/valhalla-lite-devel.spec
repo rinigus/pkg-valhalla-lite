@@ -14,8 +14,6 @@ URL: https://github.com/valhalla/valhalla
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-Patch0: 0001-set-python-version-in-a-script.patch
-
 BuildRequires: gcc-c++ libtool vim-enhanced
 BuildRequires: cmake lua lua-devel
 BuildRequires: jq, protobuf-devel, libcurl-devel >= 7.22.0
@@ -52,7 +50,6 @@ Tools for valhalla
 
 %prep
 %setup -q -n %{name}-%{version}/valhalla
-%patch0 -p1
 
 %build
 %{__make} clean || true
