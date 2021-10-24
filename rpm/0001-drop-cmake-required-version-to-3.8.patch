@@ -1,0 +1,25 @@
+From 08051d724af838f7c9f2a3595b15167dc4526888 Mon Sep 17 00:00:00 2001
+From: Rinigus <rinigus.git@gmail.com>
+Date: Sun, 24 Oct 2021 21:26:43 +0300
+Subject: [PATCH] drop cmake required version to 3.8
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bfc57f8bc..9cb319386 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,7 +7,7 @@ 
+ # This is secondary build configuration provided for convenient development
+ # on Windows and using CMake-enabled IDEs.
+ #
+-cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
++cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
+ project(valhalla LANGUAGES CXX C)
+ 
+ include(FindPkgConfig)
+-- 
+2.32.0
+

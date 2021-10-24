@@ -12,6 +12,7 @@ Group: Development/Libraries
 URL: https://github.com/valhalla/valhalla
 
 Source: %{name}-%{version}.tar.gz
+Patch0: 0001-drop-cmake-required-version-to-3.8.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++ libtool vim-enhanced
@@ -50,6 +51,7 @@ Tools for valhalla
 
 %prep
 %setup -q -n %{name}-%{version}/valhalla
+%patch0 -p1
 
 %build
 %{__make} clean || true
