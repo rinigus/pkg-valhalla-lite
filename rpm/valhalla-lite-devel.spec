@@ -116,9 +116,6 @@ cd ..
 %files tools
 %defattr(-, root, root, 0755)
 %{_bindir}/valhalla_*
-%if 0%{?sailfishos}
-%{_libdir}/libvalhalla.so*
-%endif
 
 %changelog
 * Mon Aug 27 2018 rinigus <rinigus.git@gmail.com> - 2.6.3-1
