@@ -13,7 +13,7 @@ URL: https://github.com/valhalla/valhalla
 
 Source: %{name}-%{version}.tar.gz
 Patch0: 0001-drop-cmake-required-version-to-3.8.patch
-Patch1: 0002-cpp-statsd-client-fix-minimal-CMake-version.patch
+Patch1: 0002-cpp-statsd-client-older-cmake.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++ libtool vim-enhanced
