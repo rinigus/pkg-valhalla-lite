@@ -92,7 +92,7 @@ cd ..
 # remove thirdparty files
 rm -rf %{buildroot}%{_includedir}/include/cpp-statsd-client
 rm -rf %{buildroot}%{_includedir}/robin_hood.h
-rm -rf %{buildroot}/usr/lib/cmake/robin_hood
+rm -rf %{buildroot}%{_libdir}/cmake/robin_hood
 rm -rf %{buildroot}%{_datadir}/cpp-statsd-client
 
 %clean
