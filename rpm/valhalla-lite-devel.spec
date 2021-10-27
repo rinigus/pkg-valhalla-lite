@@ -5,7 +5,7 @@
 
 Summary: Open Source Routing Engine for OpenStreetMap
 Name: valhalla-lite
-Version: 3.1.0
+Version: 3.1.4
 Release: 1%{?dist}
 License: MIT
 Group: Development/Libraries
