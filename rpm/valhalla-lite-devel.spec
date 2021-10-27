@@ -5,16 +5,16 @@
 
 Summary: Open Source Routing Engine for OpenStreetMap
 Name: valhalla-lite
-Version: 3.1.0
+Version: 3.1.4
 Release: 1%{?dist}
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/valhalla/valhalla
 
 Source: %{name}-%{version}.tar.gz
+Patch0: 0001-drop-cmake-required-version-to-3.8.patch
+Patch1: 0002-cpp-statsd-client-older-cmake.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
-
-Patch0: 0001-set-python-version-in-a-script.patch
 
 BuildRequires: gcc-c++ libtool vim-enhanced
 BuildRequires: cmake lua lua-devel
@@ -53,6 +53,7 @@ Tools for valhalla
 %prep
 %setup -q -n %{name}-%{version}/valhalla
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} clean || true
@@ -88,6 +89,12 @@ cd build-rpm
 %{__make} install DESTDIR=%{buildroot}
 cd ..
 
+# remove thirdparty files
+rm -rf %{buildroot}%{_includedir}/include/cpp-statsd-client
+rm -rf %{buildroot}%{_includedir}/robin_hood.h
+rm -rf %{buildroot}/usr/lib/cmake/robin_hood
+rm -rf %{buildroot}%{_datadir}/cpp-statsd-client
+
 %clean
 %{__rm} -rf %{buildroot}
 
@@ -117,9 +124,6 @@ cd ..
 %files tools
 %defattr(-, root, root, 0755)
 %{_bindir}/valhalla_*
-%if 0%{?sailfishos}
-%{_libdir}/libvalhalla.so*
-%endif
 
 %changelog
 * Mon Aug 27 2018 rinigus <rinigus.git@gmail.com> - 2.6.3-1
