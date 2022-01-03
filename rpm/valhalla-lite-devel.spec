@@ -33,6 +33,12 @@ Conflicts: valhalla-devel
 %description
 Valhalla Libraries - Open Source Routing Engine for OpenStreetMap
 
+PackageName: Valhalla Lite Library
+Categories:
+  - Maps
+  - Science
+  - Library
+
 %package devel
 Summary: Valhalla development package
 Group: Development/Libraries/Other
@@ -40,6 +46,12 @@ Requires: %{name} = %{version}
 
 %description devel
 %summary
+
+PackageName: Valhalla Lite Library Development
+Categories:
+  - Maps
+  - Science
+  - Library
 
 %package tools
 Summary: valhalla tools
