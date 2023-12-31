@@ -1,0 +1,25 @@
+From f7a4550216f0bdb57a4ce64d673fdb9148912e75 Mon Sep 17 00:00:00 2001
+From: Rinigus <rinigus.git@gmail.com>
+Date: Sun, 31 Dec 2023 12:04:41 +0200
+Subject: [PATCH] Set boost version to 1.66
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 585008d47..24484f251 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -134,7 +134,7 @@ find_package(Threads REQUIRED)
+ find_package(ZLIB REQUIRED)
+ 
+ # try to find an installed boost or install locally with conan
+-set(boost_VERSION "1.71")
++set(boost_VERSION "1.66")
+ find_package(Boost ${boost_VERSION} QUIET)
+ if (NOT Boost_FOUND)
+   # bail if there's no conan installed
+-- 
+2.41.0
+

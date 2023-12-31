@@ -5,7 +5,7 @@
 
 Summary: Open Source Routing Engine for OpenStreetMap
 Name: valhalla-lite
-Version: 3.2.1
+Version: 3.4.0
 Release: 1%{?dist}
 License: MIT
 Group: Development/Libraries
@@ -13,7 +13,7 @@ URL: https://github.com/valhalla/valhalla
 
 Source: %{name}-%{version}.tar.gz
 Patch0: 0001-drop-cmake-required-version-to-3.8.patch
-Patch1: 0002-cpp-statsd-client-older-cmake.patch
+Patch1: 0002-Set-boost-version-to-1.66.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++ libtool vim-enhanced
@@ -86,7 +86,7 @@ CXXFLAGS="$CXXFLAGS -fPIC"
        -DBUILD_SHARED_LIBS=OFF \
        -DENABLE_DATA_TOOLS=OFF -DENABLE_PYTHON_BINDINGS=OFF \
        -DENABLE_SERVICES=OFF -DENABLE_NODE_BINDINGS=OFF \
-       -DENABLE_TESTS=OFF -DENABLE_WERROR=OFF
+       -DENABLE_TESTS=OFF -DENABLE_WERROR=OFF -DENABLE_SINGLE_FILES_WERROR=OFF
 
 %else
 
