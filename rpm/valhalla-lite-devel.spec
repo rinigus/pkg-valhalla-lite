@@ -3,8 +3,6 @@
 %define sailfishos 1
 %endif
 
-%define _smp_mflags -j1
-
 Summary: Open Source Routing Engine for OpenStreetMap
 Name: valhalla-lite
 Version: 3.4.0
