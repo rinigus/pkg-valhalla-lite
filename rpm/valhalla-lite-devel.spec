@@ -31,7 +31,6 @@ BuildRequires: boost-system >= 1.51
 BuildRequires: lz4-devel >= 1.7.3, zlib-devel >= 1.2.8
 %if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
 BuildRequires: protobuf-lite-devel
-Requires: protobuf-lite
 %endif
 Requires: protobuf
 Requires: boost-date-time >= 1.51, boost-filesystem >= 1.51
@@ -95,24 +94,11 @@ Categories:
 mkdir build-rpm || true
 cd build-rpm
 
-%if 0%{?sailfishos}
-
-CFLAGS="$CFLAGS -fPIC"
-CXXFLAGS="$CXXFLAGS -fPIC"
 %cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr \
-       -DBUILD_SHARED_LIBS=OFF \
+       -DBUILD_SHARED_LIBS=ON \
        -DENABLE_DATA_TOOLS=OFF -DENABLE_PYTHON_BINDINGS=OFF \
        -DENABLE_SERVICES=OFF \
        -DENABLE_TESTS=OFF -DENABLE_WERROR=OFF -DENABLE_SINGLE_FILES_WERROR=OFF
-
-%else
-
-%cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr \
-       -DBUILD_SHARED_LIBS=ON -DENABLE_DATA_TOOLS=OFF \
-       -DENABLE_PYTHON_BINDINGS=OFF -DENABLE_SERVICES=OFF \
-       -DENABLE_TESTS=OFF -DENABLE_WERROR=OFF -DENABLE_SINGLE_FILES_WERROR=OFF
-
-%endif
 
 %{__make} %{?_smp_mflags}
 cd ..
@@ -141,25 +127,23 @@ rm -rf %{buildroot}%{_datadir}/cpp-statsd-client
 %files
 %defattr(-, root, root, 0755)
 %{_docdir}/valhalla/*
-%if !0%{?sailfishos}
 %{_libdir}/libvalhalla.so*
 %{_docdir}/libvalhalla0/*
-%endif
 
 %files devel
 %defattr(-, root, root, 0755)
 %{_includedir}/valhalla
 %{_libdir}/pkgconfig/libvalhalla.pc
 %{_docdir}/libvalhalla-dev/*
-%if 0%{?sailfishos}
-%{_libdir}/libvalhalla.a
-%endif
 
 %files tools
 %defattr(-, root, root, 0755)
 %{_bindir}/valhalla_*
 
 %changelog
+* Sat Jun 15 2024 rinigus <rinigus.git@gmail.com> - 3.4.0-2
+- swap to shared libs for SFOS
+
 * Mon Aug 27 2018 rinigus <rinigus.git@gmail.com> - 2.6.3-1
 - packaging lite version
 
