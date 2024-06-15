@@ -15,6 +15,7 @@ Source: %{name}-%{version}.tar.gz
 Patch0: 0001-drop-cmake-required-version-to-3.8.patch
 Patch1: 0002-Set-boost-version-to-1.66.patch
 Patch2: 0003-cpp-statsd-client-older-cmake.patch
+Patch3: 0004-Update-protobuf-configuration.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++ libtool vim-enhanced
@@ -74,6 +75,7 @@ Categories:
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__make} clean || true
