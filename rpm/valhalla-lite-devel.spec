@@ -31,6 +31,7 @@ BuildRequires: boost-system >= 1.51
 BuildRequires: lz4-devel >= 1.7.3, zlib-devel >= 1.2.8
 %if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
 BuildRequires: protobuf-lite-devel
+Requires: protobuf-lite
 %endif
 Requires: protobuf
 Requires: boost-date-time >= 1.51, boost-filesystem >= 1.51
@@ -52,6 +53,10 @@ Categories:
 Summary: Valhalla development package
 Group: Development/Libraries/Other
 Requires: %{name} = %{version}
+%if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
+Requires: protobuf-lite-devel
+Requires: protobuf-lite
+%endif
 
 %description devel
 %summary
