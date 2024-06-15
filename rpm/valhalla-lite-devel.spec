@@ -16,6 +16,7 @@ Group: Development/Libraries
 URL: https://github.com/valhalla/valhalla
 
 Source: %{name}-%{version}.tar.gz
+Source1: libvalhalla.pc
 Patch0: 0001-drop-cmake-required-version-to-3.8.patch
 Patch1: 0002-Set-boost-version-to-1.66.patch
 Patch2: 0003-cpp-statsd-client-older-cmake.patch
@@ -114,6 +115,12 @@ rm -rf %{buildroot}%{_includedir}/include/cpp-statsd-client
 rm -rf %{buildroot}%{_includedir}/robin_hood.h
 rm -rf %{buildroot}%{_libdir}/cmake/robin_hood
 rm -rf %{buildroot}%{_datadir}/cpp-statsd-client
+
+%if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
+# replace pkg=config file
+rm %{buildroot}%{_libdir}/pkgconfig/libvalhalla.pc
+cp %{SOURCE1} %{buildroot}%{_libdir}/pkgconfig/libvalhalla.pc
+%endif
 
 %clean
 %{__rm} -rf %{buildroot}

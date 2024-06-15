@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libvalhalla
+Description: valhalla c++ library
+Version: 3.4.0
+Libs: -L${libdir} -lvalhalla
+Libs.private: -pthread -lm
+Requires: zlib protobuf-lite libcurl
+Cflags: -I${includedir} -I${includedir}/valhalla/third_party
