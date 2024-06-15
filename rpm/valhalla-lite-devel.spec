@@ -55,7 +55,6 @@ Group: Development/Libraries/Other
 Requires: %{name} = %{version}
 %if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
 Requires: protobuf-lite-devel
-Requires: protobuf-lite
 %endif
 
 %description devel
