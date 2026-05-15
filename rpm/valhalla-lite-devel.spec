@@ -21,6 +21,7 @@ Patch0: 0001-drop-cmake-required-version-to-3.8.patch
 Patch1: 0002-Set-boost-version-to-1.66.patch
 Patch2: 0003-cpp-statsd-client-older-cmake.patch
 Patch3: 0004-Update-configuration-for-newer-Protobuf.patch
+Patch4: 0005-PR-4154-gcc13-was-missing-some-std-header-includes.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++ libtool vim-enhanced
