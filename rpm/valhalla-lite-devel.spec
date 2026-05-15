@@ -90,6 +90,9 @@ Categories:
 %if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
 %patch3 -p1
 %endif
+%if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 50100
+%patch4 -p1
+%endif
 
 %build
 %{__make} clean || true
